@@ -17,7 +17,7 @@ class Cliente {
         this.cpf = cpf;
         this.nome = nome;
     }
-
+    //Sets
     public void setSalario(int salario) {
         this.salario = salario;
     }
@@ -26,19 +26,16 @@ class Cliente {
         this.endereco = endereco;
     }
 
+    //método que vai ser overloaded
     public int calcularRendimentoTotal(int meses) {
         return salario * meses;
     }
-
-    // Método sobrecarregado com percentual de bônus
     public int calcularRendimentoTotal(int meses, double percentualBonus) {
-        // Calcula o rendimento total sem o bônus
-        int rendimentoTotal = calcularRendimentoTotal(meses);
+        // Calcula o rendimento
+        int rendimentoTotal = calcularRendimentoTotal(meses); 
+        //Rendimento vai ser calculado com o primeiro método, para aproveita-lo
 
-        // Calcula o valor do bônus
-        int bonus = (int) (rendimentoTotal * (percentualBonus / 100));
-
-        // Adiciona o bônus ao rendimento total
-        return rendimentoTotal + bonus;
+        int bonus = (int) (rendimentoTotal * (percentualBonus / 100)); // Calcula o valor do bônus
+        return rendimentoTotal + bonus; //Entrega rendimento e bonus
     }
 }
